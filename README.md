@@ -1,12 +1,13 @@
-# React + Vite
+# PROJECT_NAME
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PROJECT_DESCRIPTION
 
-Currently, two official plugins are available:
+## License
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is licensed under the MIT License. That means you're free to use, copy, modify, and distribute it — **but attribution is required**. Please retain my name in all forks or derivatives. 
 
-## Expanding the ESLint configuration
+If you're building on this project, a simple credit like "Based on the original project by Emmanuel Leu Tecson" is enough.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> Original Author: Emmanuel Leu Tecson
+> License: MIT – See `LICENSE` file
+

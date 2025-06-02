@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Server Status</title>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      background: #0f2027;
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #ffffff;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .floaty {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+    }
+    .floaty:nth-child(1) {
+      top: 10%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+    .floaty:nth-child(2) {
+      top: 50%;
+      left: 70%;
+      animation-delay: 2s;
+    }
+    .floaty:nth-child(3) {
+      top: 80%;
+      left: 10%;
+      animation-delay: 4s;
+    }
+    .floaty:nth-child(4) {
+      top: 30%;
+      left: 80%;
+      animation-delay: 1s;
+    }
+    .floaty:nth-child(5) {
+      top: 60%;
+      left: 40%;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-20px) scale(1.1);
+      }
+      100% {
+        transform: translateY(0) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floaty"></div>
+  <div class="floaty"></div>
+  <div class="floaty"></div>
+  <div class="floaty"></div>
+  <div class="floaty"></div>
+
+  <h1>Server is running</h1>
+  <p>Uptime: <span id="uptime"></span></p>
+  
+  <script>
+    // Get uptime passed from server (in seconds)
+    let seconds = <%= uptimeSeconds %>;
+
+    function format(seconds) {
+      const hrs = Math.floor(seconds / 3600);
+      const mins = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+      return `${hrs} hours, ${mins} mins, ${secs} seconds`;
+    }
+
+    const uptimeEl = document.getElementById("uptime");
+    function updateUptime() {
+      uptimeEl.textContent = format(seconds++);
+    }
+
+    updateUptime(); // Show immediately
+    setInterval(updateUptime, 1000); // Update every second
+  </script>
+  <script>
+    // Refresh page
+    function refresh() {
+      window.location.reload();
+    }
+    
+    const minutes = 1;
+    setInterval(refresh, minutes * 60 * 1000);
+  </script>
+</body>
+</html>

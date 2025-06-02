@@ -1,0 +1,8 @@
+{
+  "watch": ["dist"],
+  "ext": "js,json",
+  "ignore": ["node_modules"],
+  "exec": "node ./dist/server.js",
+  "delay": "1000"
+}
+
